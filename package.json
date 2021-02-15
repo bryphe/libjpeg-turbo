@@ -15,13 +15,21 @@
       "DYLD_LIBRARY_PATH": {
         "scope": "global",
         "val": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/:#{self.lib}:$DYLD_LIBRARY_PATH"
+      },
+      "JPEG_INCLUDE_PATH": {
+          "val": "#{self.install / 'include' }",
+          "scope": "global"
+      },
+      "JPEG_LIB_PATH": {
+          "val": "#{self.lib}",
+          "scope": "global"
       }
     },
     "build": "#{os == 'windows' ? 'echo esy-libjpeg-turbo currently works on on Linux/OSX': 'bash ./esy-build.sh'}"
   },
   "dependencies": {
     "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755074afbf63eb794b94135476b1d1",
-    "esy-nasm": "prometheansacrifice/esy-nasm#6240bdbb164476558d3738812fbbe48f66cc904a",
+    "esy-nasm": "revery-ui/esy-nasm#64a802b",
     "@esy-cross/ninja-build": "^1.8.2001"
   }
 }
